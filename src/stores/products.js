@@ -1,6 +1,6 @@
 import {apiAuth, apiUrl} from "../services/apiAuth"
-import { defineStore } from 'pinia'
-import { useStorage } from '@vueuse/core'
+import {defineStore} from 'pinia'
+import {useStorage} from '@vueuse/core'
 
 export const useProductStore = defineStore({
 
@@ -50,7 +50,7 @@ export const useProductStore = defineStore({
             this.product = null
             this.loading = true
             try {
-                this.product = await fetch(`${apiUrl}/products/${id}`,{
+                this.product = await fetch(`${apiUrl}/products/${id}`, {
                     headers: {"Authorization": apiAuth}
                 })
                     .then((response) => response.json())

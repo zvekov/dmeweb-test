@@ -1,7 +1,8 @@
 import {apiAuth, apiUrl} from "../services/apiAuth"
 import {defineStore} from 'pinia'
 import {useStorage} from '@vueuse/core'
-import { useModalStore } from './modal'
+import {useModalStore} from './modal'
+
 const {toogleCategoryForm} = useModalStore()
 
 export const useCategoryStore = defineStore({
@@ -65,7 +66,7 @@ export const useCategoryStore = defineStore({
         async addCategory(data) {
             this.category = null
             this.loading = true
-            this.alert= {}
+            this.alert = {}
             try {
                 this.category = await fetch(`${apiUrl}/products/categories/`, {
                     body: JSON.stringify(data),
@@ -93,7 +94,7 @@ export const useCategoryStore = defineStore({
         async updateCategory(data) {
             this.category = null
             this.loading = true
-            this.alert= {}
+            this.alert = {}
             try {
                 this.category = await fetch(`${apiUrl}/products/categories/${data.id}`, {
                     body: JSON.stringify(data),
@@ -121,7 +122,7 @@ export const useCategoryStore = defineStore({
         async deleteCategory(id) {
             this.category = null
             this.loading = true
-            this.alert= {}
+            this.alert = {}
             try {
                 this.category = await fetch(`${apiUrl}/products/categories/${id}?force=true`, {
                     method: 'DELETE',

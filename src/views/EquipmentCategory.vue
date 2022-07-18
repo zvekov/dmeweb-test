@@ -1,6 +1,6 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import { watch, defineAsyncComponent } from 'vue'
+import {useRoute} from 'vue-router'
+import {watch, defineAsyncComponent} from 'vue'
 import {storeToRefs} from 'pinia'
 import {useProductStore} from "../stores/products";
 import {useCategoryStore} from "../stores/categories";
@@ -20,8 +20,8 @@ const EquipmentList = defineAsyncComponent(() =>
 const route = useRoute()
 
 const {productsByCategory, loading, error} = storeToRefs(useProductStore())
-const { category } = storeToRefs(useCategoryStore())
-const { getMainCategories } = storeToRefs(useCategoryStore())
+const {category} = storeToRefs(useCategoryStore())
+const {getMainCategories} = storeToRefs(useCategoryStore())
 const {getMainSubCategories} = storeToRefs(useCategoryStore())
 
 const {fetchProductsByCategory} = useProductStore()
@@ -51,7 +51,7 @@ watch(
         <EquipmentCatalogNavigation :items="getMainSubCategories" name="subcategory" title="Subcategories"/>
       </template>
       <template #main>
-        <EquipmentList :loading="loading" :error="error" :products="productsByCategory ? productsByCategory : []" />
+        <EquipmentList :loading="loading" :error="error" :products="productsByCategory ? productsByCategory : []"/>
       </template>
     </EquipmentCatalog>
   </Page>
