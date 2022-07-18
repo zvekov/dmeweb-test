@@ -3,13 +3,6 @@ import EquipmentCatalogHeader from './EquipmentCatalogHeader.vue'
 import Button from '@/components/ui/Button.vue'
 import EditIcon from "@/assets/icons/edit.svg?raw"
 
-import {computed, useSlots} from "vue";
-const numberAside = computed(() => {
-  const slots = useSlots()
-  // if (slots.aside === 2) return 2
-  // if (slots.firstaside || slots.lastaside) return 4
-  return slots
-})
 </script>
 
 <template>

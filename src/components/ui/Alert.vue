@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, ref} from "vue";
+import {onMounted, onUnmounted, ref} from "vue";
 
 defineProps({
   alert: {
@@ -12,6 +12,9 @@ const alertShow = ref(false)
 
 onMounted(() => {
   alertShow.value = true
+})
+onUnmounted(() => {
+  alert.value = null
 })
 
 function hideAlert() {

@@ -5,7 +5,7 @@ import {storeToRefs} from 'pinia'
 import {useProductStore} from "../stores/products";
 import {useCategoryStore} from "../stores/categories";
 
-import Page from '@/components/ui/Page.vue'
+import Page from "@/components/ui/Page.vue"
 
 const EquipmentCatalog = defineAsyncComponent(() =>
     import("../components/EquipmentCatalog/EquipmentCatalog.vue")
