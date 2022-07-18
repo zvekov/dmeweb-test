@@ -1,0 +1,5 @@
+## env.local
+````
+VITE_API_CLIENT_KEY=ck_1696258a65672c17785a89e548d91d56987311c1
+VITE_API_CLIENT_SECRET=cs_f2e95c2cbce3a69a6e3a285a760c164e635f3e8c
+VITE_API_URL=https://wp.zvekov.com/wp-json/wc/v3
