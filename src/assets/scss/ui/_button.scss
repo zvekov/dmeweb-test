@@ -1,0 +1,31 @@
+.btn {
+  &__default {
+    background-color: #05A3AD;
+    color: #FFFFFF;
+    border: 1px solid #05A3AD;
+
+    & span {
+      color: #FFFFFF;
+    }
+  }
+
+  &__primary {
+    background-color: #FFFFFF;
+    color: #8C99AF;
+    border: 1px solid #8C99AF;
+
+    & span {
+      color: #8C99AF;
+    }
+  }
+
+  &__ghost {
+    background-color: transparent;
+    color: #8C99AF;
+    border: 1px solid transparent;
+
+    & span {
+      color: #8C99AF;
+    }
+  }
+}
