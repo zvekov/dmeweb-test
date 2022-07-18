@@ -7,8 +7,8 @@ const {toogleCategoryForm} = useModalStore()
 export const useCategoryStore = defineStore({
     id: 'category',
     state: () => ({
-        category: useStorage('categoryStorage', {}),
-        categories: useStorage('categoriesStorage', []),
+        category: {},
+        categories: [],
         loading: false,
         error: null,
         alert: {
@@ -26,7 +26,6 @@ export const useCategoryStore = defineStore({
         getSubCategoriesInSubcategory: (state) => {
             return state.categories.filter((category) => category.parent === state.category?.parent)
         }
-
     },
     actions: {
 

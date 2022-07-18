@@ -19,7 +19,7 @@ const EquipmentList = defineAsyncComponent(() =>
 
 const route = useRoute()
 
-const {products, loading, error} = storeToRefs(useProductStore())
+const {productsByCategory, loading, error} = storeToRefs(useProductStore())
 const { category } = storeToRefs(useCategoryStore())
 const { getMainCategories } = storeToRefs(useCategoryStore())
 const {getMainSubCategories} = storeToRefs(useCategoryStore())
@@ -36,7 +36,7 @@ watch(
     () => route.params.id,
     newId => {
       category.value = fetchCategory(newId)
-      products.value = fetchProductsByCategory(newId)
+      productsByCategory.value = fetchProductsByCategory(newId)
     }
 )
 
@@ -51,7 +51,7 @@ watch(
         <EquipmentCatalogNavigation :items="getMainSubCategories" name="subcategory" title="Subcategories"/>
       </template>
       <template #main>
-        <EquipmentList :loading="loading" :error="error" :products="products ? products : []" />
+        <EquipmentList :loading="loading" :error="error" :products="productsByCategory ? productsByCategory : []" />
       </template>
     </EquipmentCatalog>
   </Page>

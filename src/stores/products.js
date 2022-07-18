@@ -6,9 +6,9 @@ export const useProductStore = defineStore({
 
     id: 'product',
     state: () => ({
-        products: useStorage('productsStorage',[]),
-        product: useStorage('productStorage',null),
-        productsByCategory: useStorage('productsByCategoryStorage',[]),
+        allProducts: [],
+        productsByCategory: [],
+        product: null,
         loading: false,
         error: null
     }),
@@ -17,10 +17,10 @@ export const useProductStore = defineStore({
 
         //* Get products
         async fetchProducts() {
-            this.products = []
+            this.allProducts = []
             this.loading = true
             try {
-                this.products = await fetch(`${apiUrl}/products?per_page=100`, {
+                this.allProducts = await fetch(`${apiUrl}/products?per_page=100`, {
                     headers: {"Authorization": apiAuth}
                 })
                     .then((response) => response.json())
@@ -31,11 +31,11 @@ export const useProductStore = defineStore({
             }
         },
         //* Get products by category
-        async fetchProductsByCategory(categoryId) {
-            this.products = []
+        async fetchProductsByCategory(id) {
+            this.productsByCategory = []
             this.loading = true
             try {
-                this.products = await fetch(`${apiUrl}/products?category=${categoryId}&per_page=100`, {
+                this.productsByCategory = await fetch(`${apiUrl}/products?category=${id}&per_page=100`, {
                     headers: {"Authorization": apiAuth}
                 })
                     .then((response) => response.json())
